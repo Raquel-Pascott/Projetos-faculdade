@@ -1,0 +1,95 @@
+#Raquel Pascott de Almeida
+
+#Exercício Prático 2: Em que dia da semana você nasceu?
+
+#Através do método de Gauss descobrir qual dia da semana tem uma determinada data
+
+#A entrada consiste em 3 valores: dia, mês e ano e a saída deve conter o dia da semana correspondente a data
+
+#Entrada
+DD,MM,AAAA = input().split("/")
+
+
+#Convertendo o valor e separando as variáveis
+DD = int(DD)
+MM = int(MM)
+AAAA = float(AAAA)
+
+#Condições para os meses que possuem 28, 30 ou 31 dias
+if DD<0 or DD>31:
+    print("Data inválida")
+if MM<=0 or MM>12:
+    print("Data inválida")
+if MM == 2 and DD>28:
+    print("Data inválida")
+if MM ==4 and DD>30:
+    print("Data inválida")
+if MM == 5 and DD>30:
+    print("Data inválida")
+if MM == 6 and DD>30:
+    print("Data inválida")
+if MM == 9 and DD>30:
+    print("Data inválida")
+if MM ==11 and DD>30:
+    print("Data inválida")
+
+#Chaves dos meses
+if MM == 1:
+    mes= 28
+elif MM == 2:
+    mes= 31
+elif MM == 3:
+    mes=2
+elif MM == 4:
+    mes = 5
+elif MM == 5:
+    mes =7
+elif MM == 6:
+    mes = 10
+elif MM == 7:
+    mes = 12
+elif MM == 8:
+    mes =15
+elif MM == 9:
+    mes = 18
+elif MM == 10:
+    mes =20
+elif MM == 11:
+    mes = 23
+elif MM ==12:
+    mes = 25
+
+#Para os meses de janeiro e fevereiro
+if mes == 28 or mes==31:
+    AAAA= AAAA-1
+else:
+    AAAA= AAAA
+
+#Chave do ano
+
+chave_ano = 5*(AAAA%4)+4*(AAAA%100)+6*(AAAA%400)
+
+#Encontrar x
+x = DD + mes + chave_ano
+
+#Encontrar maior múltiplo de 7
+maior_7 = x//7
+maior_mult7 = maior_7*7
+
+#Dia da semana
+dia_semana = x - maior_mult7
+
+if dia_semana == 0:
+    print("Domingo")
+elif dia_semana==1:
+    print("Segunda-feira")
+elif dia_semana ==2:
+    print("Terça-feira")
+elif dia_semana==3:
+    print("Quarta-feira")
+elif dia_semana==4:
+    print("Quinta-feira")
+elif dia_semana==5:
+    print("Sexta-feira")
+elif dia_semana==6:
+    print("Sábado")
